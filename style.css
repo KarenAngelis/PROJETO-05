@@ -1,0 +1,200 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* faz com que o navegador não calcule a 
+  dimensão de um elemento somando bordas e margens com altura e largura*/
+}
+
+/* é como um leve reset: Adiciono as informações acima, para que o navegador não crie espaços que não desejo*/
+
+
+body, input, button, select, textarea {
+  font-family: 'Poppins', sans-serif;  /*está aplicada em toda página (menos no h1 que fiz uma regra pra ele)*/
+
+}
+
+body{
+background: #e5e5e5; /*cor de fundo do body*/
+}
+
+body::before { /*Cria um elemento HTML antes do conteúdo // After é depois*/
+  content: '';
+  width: 100%; /*determina a largura da área de conteúdo de um elemento. A área de conteúdo fica dentro do 
+  preenchimento, da borda, e da margem de um elemento.*/
+  height: 368px; /*determina a altura da área do conteúdo de um elemento*/
+  background: #121214;
+
+  position: absolute; /*indica que o elemento ficará em uma posição fixa em relação à página*/
+
+  top:0; /*para tirar o espaçamento do topo da página*/
+  left: 0; /*para tirar o espaçamento lateral da página*/
+  z-index: -1; /*especifica a ordem da pilha de um elemento */
+}
+
+.page{
+  width: 736px;
+  margin: 0 auto; /*para alinhar ao centro da página*/
+}
+
+header{
+  width: 319px; /*estou dando o tamanho da caixa de todo header*/
+  margin-top:  80px; /*é o tamanho da caixa em comparação com a margim do topo*/
+}
+
+
+header h1 {
+  font-family: 'Archivo', sans-serif; /*fonte utilizada*/
+  font-weight: bold; /*Intensidade da fonte*/
+  font-size: 36px; /*tamanho da fonte*/
+  line-height: 42px; /*espaçamento permite controlar o espaçamento entre as linhas de um texto*/
+  color: white;
+  margin-bottom: 24px;
+}
+
+header p{
+  color: #42D3FF;
+  font-size:16px;
+  line-height:26px;
+}
+
+form{
+  background: #fafafc;
+  margin-top: 42px;
+  min-height: 400px; /*altura mínima*/
+  border-radius: 8px; /*curvatura da ponta da borda*/
+  padding: 64px; /*responsável por definir uma distância interna 
+  entre um elemento e sua borda (dentro do form)*/
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+fieldset{
+  border: none; /*retiramos as bordas do fieldset*/
+
+}
+
+.fieldset-wrapper{
+  display: flex;
+  flex-direction: column;
+  gap:24px;
+}
+
+fieldset legend{
+  font-family: 'Archivo', sans-serif; /*fonte utilizada*/
+  font-size:24px;
+  line-height:34px;
+  font-weight: 600;
+
+  border-bottom: 1px solid #e6e6f0; /*é um shortcut para definir diversas 
+  propriedades da borda de baixo (bottom) ao mesmo tempo;
+  ele define a espessura, cor e tipo da borda de uma só vez.*/
+
+  width: 100%;
+  padding-bottom: 16px; /*padding-bottom: indica a distância na parte inferior do conteúdo; 
+  padding-left: representa a distância no lado esquerdo do box; 
+  padding-right: indica a distância aplicada no lado direito do elemento; 
+  padding-top: indica qual o espaçamento superior no elemento.*/
+  margin-bottom: 24px;
+}
+
+/*Dica: quando o elemento está na mesma linha, não funcionará o width (inline)
+Será necessário habilitar o inline-block*/
+
+.input-wrapper {
+  display: flex; /*Quando colocamos essa propriedade em um elemento, esse elemento se torna um flex container, a partir daí podemos
+   manipular todos os elementos filhos desse flex container com propriedades novas*/
+  flex-direction: column; /*permite alterar a direção na qual os elementos 
+  flex serão exibidos ao longo do eixo principal*/
+  
+
+}
+
+.input-wrapper label,
+.checkbox-wrapper{
+  color: #4E4958;
+  font-size: 14px;
+  line-height: 24px;
+  margin-bottom: 8px;
+}
+
+.input-wrapper  label span {
+  color: #a9a7af;
+  font-size: 12px;
+  line-height: 20px;
+
+  margin-left:12px;
+}
+
+.input-wrapper  label span:hover{
+  color:#504e52;
+}
+
+.input-wrapper input, 
+.input-wrapper textarea, 
+.input-wrapper select {
+
+  background: #FAFAFC;
+  border: 1px solid #E6E6F0;
+
+  border-radius: 8px;
+ 
+  height: 56px;
+  padding: 0 24px;
+
+  color: #6c6a71;
+  font-size: 16px;
+  line-height: 26px;
+
+}
+
+.input-wrapper textarea{
+  padding: 0;
+  height: 168px; /* altura */
+}
+
+.input-wrapper select{ 
+  -webkit-appearance: none;
+  appearance: none;
+  /* https://caniuse.com/ */
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cg clip-path='url(%23clip0_1_54)'%3E%3Cpath d='M8 10L12 14L16 10' stroke='%239C98A6' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1_54'%3E%3Crect width='24' height='24' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 24px top 50%;
+  /* https://yoksel.github.io/url-encoder/ */
+}
+
+.colun-3{
+    display: flex;
+    gap: 20px;
+}
+
+.colun-3 > div:nth-child(1){ /*div:nth-child(1) diz qual é a div que quero estilizar */
+  width: 100%;
+}
+
+
+.checkbox-wrapper input{
+  display: none;
+  
+}
+
+.checkbox-wrapper input:checked + label::before{
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cg clip-path='url(%23clip0_1940_23)'%3E%3Cpath d='M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z' fill='%2342D3FF'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1940_23'%3E%3Crect width='24' height='24' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+}
+
+.checkbox-wrapper label{
+  display: flex;
+  margin: 0;
+  text-align: center;
+  gap:16px;
+}
+
+.checkbox-wrapper label::before{
+  content: '';
+  width: 24px;
+  height: 24px;
+  border: 1px solid #E6E6F0;
+  border-radius: 8px;
+  display: block;
+}
