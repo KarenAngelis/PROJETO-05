@@ -8,7 +8,7 @@
 /* é como um leve reset: Adiciono as informações acima, para que o navegador não crie espaços que não desejo*/
 
 
-body, input, button, select, textarea {
+body, input, select, textarea {
   font-family: 'Poppins', sans-serif;  /*está aplicada em toda página (menos no h1 que fiz uma regra pra ele)*/
 
 }
@@ -61,7 +61,7 @@ form{
   background: #fafafc;
   margin-top: 42px;
   min-height: 400px; /*altura mínima*/
-  border-radius: 8px; /*curvatura da ponta da borda*/
+  border-radius: 8px 8px 0px 0px; /*curvatura da ponta da borda*/
   padding: 64px; /*responsável por definir uma distância interna 
   entre um elemento e sua borda (dentro do form)*/
   display: flex;
@@ -173,10 +173,23 @@ Será necessário habilitar o inline-block*/
   width: 100%;
 }
 
+.checkbox-wrapper{
+  position: relative;
+}
 
-.checkbox-wrapper input{
-  display: none;
-  
+
+.checkbox-wrapper input{ /*ao invés de tirar o checkbox, podemos deixar ele invisível para ter acessibilidade via teclado */
+position:absolute;
+top: 0;
+left: 0;
+width: 24px;
+height: 24px;
+
+opacity: 0;
+}
+
+.checkbox-wrapper input:focus + label::before{
+  outline:2px solid black;
 }
 
 .checkbox-wrapper input:checked + label::before{
@@ -197,4 +210,39 @@ Será necessário habilitar o inline-block*/
   border: 1px solid #E6E6F0;
   border-radius: 8px;
   display: block;
+}
+
+footer{
+  border-radius: 0px 0px 8px 8px;
+
+  background: #F0F0F4;
+  height: 136px;
+
+  display: flex;
+  flex-direction: column;
+  padding: 40px 64px;
+  margin-bottom: 91px;
+  border-top: 1px solid #D6D6D6;
+  
+}
+
+footer .button{
+  height: 56px;
+  border-radius: 8px;
+  background: #04D361;
+  border: 1px solid #04D361;
+  align-items: center;
+  font-family: Archivo;
+  font-size: 16px;
+  color:#FFFFFF;
+  
+}
+
+
+footer .button:hover{
+  background: #05c65c;
+}
+
+input:invalid {
+  border: 2px solid #ff1010;
 }
